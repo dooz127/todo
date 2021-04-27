@@ -124,6 +124,14 @@ todoRoutes.route('/download/:id').get((req, res) => {
 
 app.use('/todos', todoRoutes);
 
+app.use(express.static('./../frontend/build'));
+
+app.get('*', (req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, '..', 'frontend', 'build', 'index.html')
+  );
+});
+
 app.listen(PORT, function () {
   console.log('Server is running on Port: ' + PORT);
 });
