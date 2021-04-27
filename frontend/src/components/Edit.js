@@ -78,6 +78,20 @@ export default function Edit({ match: { params }, history }) {
             onChange={(e) => setFile(e.target.files[0])}
           />
         </div>
+        <div className='form-check form-check-inline'>
+          <input
+            type='checkbox'
+            className='form-check-input'
+            name='completedCheckbox'
+            id='completedCheckbox'
+            value={completed}
+            checked={completed}
+            onChange={(e) => setCompleted(!completed)}
+          />
+          <label htmlFor='completedCheckbox' className='form-check-label'>
+            Completed
+          </label>
+        </div>
         <br />
         <br />
         <div className='form-group'>
