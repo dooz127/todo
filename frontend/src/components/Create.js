@@ -20,7 +20,7 @@ export default function Create({ history }) {
     formData.append('file', file);
 
     axios
-      .post('http://localhost:4000/todos/add', formData)
+      .post('/todos/add', formData)
       .then((res) => console.log(res.data))
       .then(() => history.push('/'));
   };

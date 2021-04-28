@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Todo({ todo, onDelete }) {
   const downloadFile = (id, path, mimetype) => {
     axios
-      .get(`http://localhost:4000/todos/download/${id}`, {
+      .get(`/todos/download/${id}`, {
         responseType: 'blob'
       })
       .then((res) => {

@@ -9,7 +9,7 @@ export default function Todos() {
 
   const fetchTodos = () => {
     axios
-      .get('http://localhost:4000/todos')
+      .get('/todos')
       .then((res) => {
         setTodos(res.data);
       })
@@ -20,7 +20,7 @@ export default function Todos() {
 
   const handleDelete = (id) => {
     axios
-      .post(`http://localhost:4000/todos/delete/${id}`)
+      .post(`/todos/delete/${id}`)
       .then(() => {
         setTodos(todos.filter((todo) => todo._id !== id));
       })

@@ -11,7 +11,7 @@ export default function Edit({ match: { params }, history }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/todos/${params.id}`)
+      .get(`/todos/${params.id}`)
       .then((res) => {
         const { description, dueDate, completed } = res.data;
         setDescription(description);
@@ -34,7 +34,7 @@ export default function Edit({ match: { params }, history }) {
     formData.append('file', file);
 
     axios
-      .post(`http://localhost:4000/todos/update/${params.id}`, formData)
+      .post(`/todos/update/${params.id}`, formData)
       .then((res) => console.log(res.data))
       .then(() => history.push('/'));
   };
@@ -42,7 +42,7 @@ export default function Edit({ match: { params }, history }) {
   const deleteTodo = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:4000/todos/delete/${params.id}`)
+      .post(`/todos/delete/${params.id}`)
       .then((res) => console.log(res.data))
       .then(() => history.push('/'));
   };
